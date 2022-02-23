@@ -1,0 +1,15 @@
+<div class="ui container">
+    <div class="ui inverted secondary menu">
+    </div>
+    <div class="ui attached inverted segment">
+        {% block header %}
+        {% endblock %}
+    </div>
+    <div class="ui attached segment">
+        {% block body %}
+        {% endblock %}
+    </div>
+</div>
+{% block scripts %}
+{{ script_foot | raw }}
+{% endblock %}
