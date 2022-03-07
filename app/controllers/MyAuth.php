@@ -31,9 +31,11 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController{
             $email = URequest::post($this->_getLoginInputName());
             $password = URequest::post($this->_getPasswordInputName());
             $user = DAO::getOne(User::class, 'email= ?', false, [$email]);
-            if ($user != null /* && $user->getPassword === $password */) {
-                USession::set('idOrga', $user->getOrganization());
-                return $user;
+            if ($user != null) {
+                if(URequest::password_verify('password', $user->getPassword())) {
+                    USession::set('idOrga', $user->getOrganization());
+                    return $user;
+                }
             } else {
                 return null;
             }
@@ -69,6 +71,8 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController{
         if (!DAO::exists(User::class, 'email= ?', [$login])) {
             $user = new User();
             $user->setEmail($login);
+            $user->setFirstname(URequest::post('prenom'));
+            $user->setLastname(URequest::post('nom'));
             $user->setPassword(\password_hash($password, PASSWORD_DEFAULT));
             $user->setOrganization(DAO::getOne(Organization::class, 'id= ?', false, [1]));
             DAO::insert($user);
@@ -97,7 +101,8 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController{
 
     protected function badLoginMessage(FlashMessage $fMessage)
     {
-
+        $fMessage->setTitle('Problème de connexion !');
+        $fMessage->setContent('Identifiants invalide.');
     }
 
     protected function getFiles(): AuthFiles{

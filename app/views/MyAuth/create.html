@@ -13,6 +13,24 @@
 {% endblock %}
 {% block _fieldLogin %}
 	{{ parent() }}
+<div class="ui two column grid">
+	<div class="column">
+		<div class="field required">
+			<label for="nom">Nom</label>
+			<div class="ui input">
+				<input id="nom" name="nom" placeholder="Nom" type="text">
+			</div>
+		</div>
+	</div>
+	<div class="column">
+		<div class="field required">
+			<label for="prenom">Prenom</label>
+			<div class="ui input">
+				<input id="prenom" name="prenom" placeholder="Prenom" type="text">
+			</div>
+		</div>
+	</div>
+</div><br />
 {% endblock %}
 {% block _login %}
 	{{ parent() }}
@@ -30,7 +48,6 @@
 	{{ parent() }}
 {% endblock %}
 {% block _after %}
-	{{ parent() }}
 {% endblock %}
 {% block _script %}
 	{{ parent() }}

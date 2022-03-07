@@ -53,5 +53,5 @@ return array(
 	"part2"=>[
 			""
 			],
-	"style"=>""
+	"style"=>"inverted"
 	);
