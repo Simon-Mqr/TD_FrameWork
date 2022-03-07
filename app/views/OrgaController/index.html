@@ -7,13 +7,28 @@
 {% endblock %}
 {% block body %}
 {{ parent() }}
+
 <ul>
-    {% for orga in orgas %}
-    <li><a href="{{path('orga.getOne', [orga.id])}}">{{orga.name}}</a></li>
+    {% for orga in all %}
+    <li>
+        <div class="ui two column grid">
+            <div class="column">
+                <a class="column" href="{{path('orga.getOne', [orga.id])}}">{{orga.name}}</a>
+            </div>
+            <div class="column">
+                <a href="{{ path('orga.formModify') }}" data-target="body">
+                    <i class="edit icon"></i>
+                </a>
+                <a href="{{ path('orga.del', [orga.id]) }}" data-target="body">
+                    <i class="x icon"></i>
+                </a>
+            </div>
+        </div>
+    </li>
     {% endfor %}
 </ul>
 
-<button class="ui primary button">Ajouter une Organisation</button>
+<a href="{{ path('orga.frmAdd') }}" class="ui primary button">Ajouter une Organisation</a>
 {% endblock %}
 
 

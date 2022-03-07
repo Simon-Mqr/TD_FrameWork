@@ -1,0 +1,23 @@
+<!--View associated to frmAdd action of OrgaController controller -->
+<form class="ui form" action="{{ path('orga.add') }}" method="post">
+    <div class="ui inverted segment">
+        <div class="ui inverted form">
+            <div class="three fields">
+                <div class="field">
+                    <label>Nom</label>
+                    <input placeholder="Nom" id="name" name="name" type="text">
+                </div>
+                <div class="field">
+                    <label>Domain</label>
+                    <input placeholder="Domain" id="domain" name="domain" type="text">
+                </div>
+                <div class="field">
+                    <label>Aliases</label>
+                    <input placeholder="Aliases" id="aliases" name="aliases" type="text">
+                </div>
+            </div>
+            <button type="submit" class="ui submit button">Valider</button>
+            <a href="{{ path('orga.index')}}" class="ui submit button">Annuler</a>
+        </div>
+    </div>
+</form>

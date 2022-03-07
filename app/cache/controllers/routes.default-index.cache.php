@@ -1,2 +1,2 @@
 <?php
-return array("orga"=>["/orga/(index/)?","/orga/getOne/(.+?)/"]);
+return array("orga"=>["/orga/(index/)?","/orga/getOne/(.+?)/","/orga/del/(.+?)/"]);
