@@ -255,17 +255,17 @@
         },
         {
             "name": "phpmv/ubiquity",
-            "version": "2.4.11",
-            "version_normalized": "2.4.11.0",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpMv/ubiquity.git",
-                "reference": "8ca2f47f3f8aa73920b94291364aa1957c07ea38"
+                "reference": "9781184160bbae1ec0ef5868af16bf809b85ea2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpMv/ubiquity/zipball/8ca2f47f3f8aa73920b94291364aa1957c07ea38",
-                "reference": "8ca2f47f3f8aa73920b94291364aa1957c07ea38",
+                "url": "https://api.github.com/repos/phpMv/ubiquity/zipball/9781184160bbae1ec0ef5868af16bf809b85ea2e",
+                "reference": "9781184160bbae1ec0ef5868af16bf809b85ea2e",
                 "shasum": ""
             },
             "require": {
@@ -277,7 +277,8 @@
                 "phpmv/ubiquity-dev": "^0.1",
                 "phpmv/ubiquity-devtools": "dev-master"
             },
-            "time": "2022-02-23T02:36:30+00:00",
+            "time": "2022-03-05T00:28:28+00:00",
+            "default-branch": true,
             "type": "framework",
             "extra": {
                 "branch-alias": {
@@ -310,7 +311,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpMv/ubiquity/issues",
-                "source": "https://github.com/phpMv/ubiquity/tree/2.4.11"
+                "source": "https://github.com/phpMv/ubiquity/tree/master"
             },
             "install-path": "../phpmv/ubiquity"
         },

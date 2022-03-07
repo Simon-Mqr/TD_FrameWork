@@ -7,8 +7,8 @@ namespace Composer\Autoload;
 class ComposerStaticInit5035550d5597c1dfb12513ea572c169f
 {
     public static $files = array (
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -42,8 +42,8 @@ class ComposerStaticInit5035550d5597c1dfb12513ea572c169f
     public static $prefixDirsPsr4 = array (
         'Ubiquity\\' => 
         array (
-            0 => __DIR__ . '/..' . '/phpmv/ubiquity-attributes/src/Ubiquity',
-            1 => __DIR__ . '/..' . '/phpmv/ubiquity/src/Ubiquity',
+            0 => __DIR__ . '/..' . '/phpmv/ubiquity/src/Ubiquity',
+            1 => __DIR__ . '/..' . '/phpmv/ubiquity-attributes/src/Ubiquity',
             2 => __DIR__ . '/..' . '/phpmv/ubiquity-debug/src/Ubiquity',
             3 => __DIR__ . '/..' . '/phpmv/ubiquity-dev/src/Ubiquity',
             4 => __DIR__ . '/..' . '/phpmv/ubiquity-webtools/src/Ubiquity',

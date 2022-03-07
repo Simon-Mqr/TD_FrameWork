@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '4a4018b3c9657a8b1ac98def1b5abd0f93d8af6b',
+        'reference' => 'ba7e84fc0715cade8313dcc07fd45d01e6c504b0',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '4a4018b3c9657a8b1ac98def1b5abd0f93d8af6b',
+            'reference' => 'ba7e84fc0715cade8313dcc07fd45d01e6c504b0',
             'dev_requirement' => false,
         ),
         'czproject/git-php' => array(
@@ -56,12 +56,14 @@
             'dev_requirement' => false,
         ),
         'phpmv/ubiquity' => array(
-            'pretty_version' => '2.4.11',
-            'version' => '2.4.11.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'framework',
             'install_path' => __DIR__ . '/../phpmv/ubiquity',
-            'aliases' => array(),
-            'reference' => '8ca2f47f3f8aa73920b94291364aa1957c07ea38',
+            'aliases' => array(
+                0 => '2.4.x-dev',
+            ),
+            'reference' => '9781184160bbae1ec0ef5868af16bf809b85ea2e',
             'dev_requirement' => false,
         ),
         'phpmv/ubiquity-attributes' => array(

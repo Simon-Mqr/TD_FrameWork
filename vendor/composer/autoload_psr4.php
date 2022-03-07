@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Ubiquity\\' => array($vendorDir . '/phpmv/ubiquity-attributes/src/Ubiquity', $vendorDir . '/phpmv/ubiquity/src/Ubiquity', $vendorDir . '/phpmv/ubiquity-debug/src/Ubiquity', $vendorDir . '/phpmv/ubiquity-dev/src/Ubiquity', $vendorDir . '/phpmv/ubiquity-webtools/src/Ubiquity'),
+    'Ubiquity\\' => array($vendorDir . '/phpmv/ubiquity/src/Ubiquity', $vendorDir . '/phpmv/ubiquity-attributes/src/Ubiquity', $vendorDir . '/phpmv/ubiquity-debug/src/Ubiquity', $vendorDir . '/phpmv/ubiquity-dev/src/Ubiquity', $vendorDir . '/phpmv/ubiquity-webtools/src/Ubiquity'),
     'Twig\\' => array($vendorDir . '/twig/twig/src'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
