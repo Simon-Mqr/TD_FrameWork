@@ -5,7 +5,6 @@ use Ubiquity\attributes\items\router\Get;
  use models\Product;
  use models\Section;
  use Ubiquity\orm\DAO;
-use Ubiquity\utils\http\URequest;
 use Ubiquity\utils\http\UResponse;
 use Ubiquity\utils\http\USession;
 
@@ -40,14 +39,21 @@ class StoreController extends \controllers\ControllerBase{
 	#[Get(path: "store/section/{idSection}",name: "store.section")]
 	public function getOneSection($idSection){
         $section = DAO::getById(Section::class, $idSection);
-        $this->loadView('StoreController/getOneSection.html', ['section'=>$section]);
+        $title = "Section";
+        $sous_title = $section->getName();
+        $produits = $section->getProducts();
+        $this->loadView('StoreController/afficheProduits.html', ['title'=>$title, 'sous_title'=>$sous_title, 'produits'=>$produits]);
 	}
 
 	#[Get(path: "store/allProducts",name: "store.allProducts")]
-	public function getAllProducts(){
+	public function getAllProducts() {
         $produits = DAO::getAll(Product::class);
-        $this->loadView('StoreController/getAllProducts.html', ['produits'=>$produits]);
-	}
+        $title = "Tout les Produits";
+        $sous_title = count($produits)." références";
+        $this->loadView('StoreController/afficheProduits.html',
+            ['title'=>$title, 'sous_title'=>$sous_title, 'produits'=>$produits]);
+    }
+
 
 
 	#[Route(path: "store/addToCart/{idProduit}/{count}",name: "store.addToCart")]
