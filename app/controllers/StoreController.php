@@ -4,7 +4,9 @@ use Ubiquity\attributes\items\router\Route;
 use Ubiquity\attributes\items\router\Get;
  use models\Product;
  use models\Section;
- use Ubiquity\orm\DAO;
+use Ubiquity\controllers\auth\AuthController;
+use Ubiquity\controllers\auth\WithAuthTrait;
+use Ubiquity\orm\DAO;
 use Ubiquity\utils\http\UResponse;
 use Ubiquity\utils\http\USession;
 
@@ -12,6 +14,7 @@ use Ubiquity\utils\http\USession;
   * Controller StoreController
   */
 class StoreController extends \controllers\ControllerBase{
+    use WithAuthTrait;
 
     public function initialize() {
         USession::start();
@@ -48,7 +51,7 @@ class StoreController extends \controllers\ControllerBase{
 	#[Get(path: "store/allProducts",name: "store.allProducts")]
 	public function getAllProducts() {
         $produits = DAO::getAll(Product::class);
-        $title = "Tout les Produits";
+        $title = "Tous les Produits";
         $sous_title = count($produits)." références";
         $this->loadView('StoreController/afficheProduits.html',
             ['title'=>$title, 'sous_title'=>$sous_title, 'produits'=>$produits]);
@@ -83,4 +86,13 @@ class StoreController extends \controllers\ControllerBase{
         UResponse::header('location', '/');
 	}
 
+    protected function getAuthController(): AuthController
+    {
+        return new LoginController($this);
+    }
+
+    public function isValid($action)
+    {
+        return true;
+    }
 }

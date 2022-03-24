@@ -1,0 +1,56 @@
+{% extends "@framework/auth/create.html" %}
+{% block _before %}
+	{{ parent() }}
+{% endblock %}
+{% block _form %}
+	{{ parent() }}
+{% endblock %}
+{% block _header %}
+<h4>Creation d'un compte</h4>
+<hr />
+{% endblock %}
+{% block _fields %}
+	{{ parent() }}
+{% endblock %}
+{% block _fieldLogin %}
+	{{ parent() }}
+<div class="ui two column grid">
+	<div class="column">
+		<div class="field required">
+			<label for="nom">Nom</label>
+			<div class="ui input">
+				<input id="nom" name="nom" placeholder="Nom" type="text">
+			</div>
+		</div>
+	</div>
+	<div class="column">
+		<div class="field required">
+			<label for="prenom">Prenom</label>
+			<div class="ui input">
+				<input id="prenom" name="prenom" placeholder="Prenom" type="text">
+			</div>
+		</div>
+	</div>
+</div><br />
+{% endblock %}
+{% block _login %}
+	{{ parent() }}
+{% endblock %}
+{% block _fieldPassword %}
+	{{ parent() }}
+{% endblock %}
+{% block _password %}
+	{{ parent() }}
+{% endblock %}
+{% block _passwordConf %}
+	{{ parent() }}
+{% endblock %}
+{% block _buttons %}
+	{{ parent() }}
+{% endblock %}
+{% block _after %}
+	{{ parent() }}
+{% endblock %}
+{% block _script %}
+	{{ parent() }}
+{% endblock %}

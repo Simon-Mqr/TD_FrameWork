@@ -1,0 +1,56 @@
+{% extends "@framework/auth/index.html" %}
+{% block _before %}
+	{{ parent() }}
+{% endblock %}
+{% block _form %}
+	{{ parent() }}
+{% endblock %}
+{% block _header %}
+	<h4>Connexion</h4>
+	<hr />
+{% endblock %}
+{% block _fields %}
+	{{ parent() }}
+{% endblock %}
+{% block _fieldLogin %}
+	{{ parent() }}
+{% endblock %}
+{% block _login %}
+	{{ parent() }}
+{% endblock %}
+{% block _fieldPassword %}
+	{{ parent() }}
+{% endblock %}
+{% block _password %}
+	{{ parent() }}
+{% endblock %}
+{% block _extraFields %}
+	{{ parent() }}
+{% endblock %}
+{% block _fieldRemember %}
+{% endblock %}
+{% block _recoveryLink %}
+	{{ parent() }}
+{% endblock %}
+{% block _buttons %}
+<a class="ui green button" href="login/connect">Connexion</a>
+<div class="ui icon message">
+	<i class="user plus icon"></i>
+	<div class="content">
+		<div class="header">
+			Pas encore de compte.
+		</div>
+		<p>Créez votre compte rapidement ici !</p>
+		<a class="ui button" href="login/addAccount">Crée compte</a>
+	</div>
+</div>
+{% endblock %}
+{% block _accountCreation %}
+{{parent()}}
+{% endblock %}
+{% block _after %}
+	{{ parent() }}
+{% endblock %}
+{% block _script %}
+	{{ parent() }}
+{% endblock %}
