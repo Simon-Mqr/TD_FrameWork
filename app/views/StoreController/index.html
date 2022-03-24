@@ -1,0 +1,18 @@
+<button class= "ui green button">Parcourir le store({{nbproduits}} produits)</button>
+<hr>
+<div class="ui cards">
+    {% for section in sections %}
+    <div class="card">
+        <div class="content">
+            <div class="header">{{section.name}}</div>
+            <div class="description">
+                {{section.description}}
+            </div>
+        </div>
+        <a class="ui bottom attached button" href=store/section/{{section.id}}>
+            <i class="add icon"></i>
+            Consulter produits ({{section.getProducts|length}})
+        </a>
+    </div>
+    {%endfor%}
+</div>
