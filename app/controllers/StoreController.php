@@ -1,14 +1,33 @@
 <?php
 namespace controllers;
+use Ubiquity\attributes\items\router\Route;
 use Ubiquity\attributes\items\router\Get;
  use models\Product;
  use models\Section;
  use Ubiquity\orm\DAO;
+use Ubiquity\utils\http\URequest;
+use Ubiquity\utils\http\UResponse;
+use Ubiquity\utils\http\USession;
 
- /**
+/**
   * Controller StoreController
   */
 class StoreController extends \controllers\ControllerBase{
+
+    public function initialize() {
+        USession::start();
+        if(USession::get('Prix') == null) {
+            $this->view->setVar('prixP', 0);
+        } else {
+            $this->view->setVar('prixP', USession::get('Prix'));
+        }
+        if(USession::get('Total') == null) {
+            $this->view->setVar('quantP', 0);
+        } else {
+            $this->view->setVar('quantP', USession::get('Total'));
+        }
+        parent::initialize();
+    }
 
     #[Route('_default', name: 'store')]
 	public function index() {
@@ -20,14 +39,42 @@ class StoreController extends \controllers\ControllerBase{
 
 	#[Get(path: "store/section/{idSection}",name: "store.section")]
 	public function getOneSection($idSection){
-        $sections = DAO::getById(Section::class, $idSection);
-        $this->loadView('StoreController/getOneSection.html', ['sections'=>$sections]);
+        $section = DAO::getById(Section::class, $idSection);
+        $this->loadView('StoreController/getOneSection.html', ['section'=>$section]);
 	}
 
-	#[Get(path: "store/allProducts",name: "store.getAllProducts")]
+	#[Get(path: "store/allProducts",name: "store.allProducts")]
 	public function getAllProducts(){
         $produits = DAO::getAll(Product::class);
         $this->loadView('StoreController/getAllProducts.html', ['produits'=>$produits]);
+	}
+
+
+	#[Route(path: "store/addToCart/{idProduit}/{count}",name: "store.addToCart")]
+	public function addToCart($idProduit,$count){
+        USession::start();
+        $product = DAO::getById(Product::class, $idProduit);
+        if(USession::get($idProduit) != null) {
+            $quantite = USession::get($idProduit) + $count;
+        } else {
+            $quantite = $count;
+        }
+        USession::set($idProduit, $quantite);
+
+        if(USession::get('Total') != null) {
+            $total = USession::get('Total') + $count;
+        } else {
+            $total = $count;
+        }
+        USession::set('Total', $total);
+
+        if(USession::get('Prix') != null) {
+            $prix = USession::get('Prix') + $product->getPrice();
+        } else {
+            $prix = $product->getPrice();
+        }
+        USession::set('Prix', $prix);
+        UResponse::header('location', '/');
 	}
 
 }

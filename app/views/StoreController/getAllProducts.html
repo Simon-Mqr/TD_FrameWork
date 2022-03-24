@@ -1,1 +1,21 @@
-<!--View associated to getAllProducts action of StoreController controller -->
+<div class="ui cards">
+    {% for product in produits %}
+    <div class="card">
+        <div class="image">
+            {{ img('store/' ~ product.image ~ '.jpg') }}
+        </div>
+        <div class="content">
+            <a class="header">{{product}}</a>
+            <div class="meta">
+                <span class="date">{{product.price}} euros</span>
+            </div>
+        </div>
+        <div class="extra content">
+            <a class="ui bottom attached green button" href={{path('store.addToCart', [product.id, 1])}}>
+                <i class="add icon"></i>
+                To cart
+            </a>
+        </div>
+    </div>
+    {%endfor%}
+</div>

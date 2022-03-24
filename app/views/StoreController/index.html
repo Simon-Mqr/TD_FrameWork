@@ -1,4 +1,4 @@
-<button class= "ui green button">Parcourir le store({{nbproduits}} produits)</button>
+<a class= "ui green button" href={{path('store.allProducts')}}>Parcourir le store({{nbproduits}} produits)</a>
 <hr>
 <div class="ui cards">
     {% for section in sections %}
@@ -9,7 +9,7 @@
                 {{section.description}}
             </div>
         </div>
-        <a class="ui bottom attached button" href=store/section/{{section.id}}>
+        <a class="ui bottom attached button" href={{path('store.section', [section.id])}}>
             <i class="add icon"></i>
             Consulter produits ({{section.getProducts|length}})
         </a>
