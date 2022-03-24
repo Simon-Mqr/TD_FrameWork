@@ -18,7 +18,7 @@ class MainController extends \controllers\ControllerBase{
     #[Route('_default', name:'home')]
 	public function index(){
 		$user = $this->getAuthController()->_getActiveUser();
-        $this->repo->byId(USession::get('idOrga'));
+        //$this->repo->byId(USession::get('idOrga'));
         $this->loadView("MainController/index.html", ['user' => $user]);
 	}
 

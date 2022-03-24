@@ -13,7 +13,7 @@
 {% endblock %}
 {% block _fieldLogin %}
 	{{ parent() }}
-<div class="ui two column grid">
+<div class="ui three column grid">
 	<div class="column">
 		<div class="field required">
 			<label for="nom">Nom</label>
@@ -27,6 +27,14 @@
 			<label for="prenom">Prenom</label>
 			<div class="ui input">
 				<input id="prenom" name="prenom" placeholder="Prenom" type="text">
+			</div>
+		</div>
+	</div>
+	<div class="column">
+		<div class="field required">
+			<label for="orga">Organization</label>
+			<div class="ui input">
+				<input id="orga" name="orga" placeholder="Organization" type="number">
 			</div>
 		</div>
 	</div>

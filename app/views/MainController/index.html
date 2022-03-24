@@ -1,12 +1,14 @@
 <h1>MainController</h1>
 <h2>{{user.email}}</h2>
-
 <div class="ui segment">
     <h2 class="ui header">
-        <i class="setting icon"></i>
+        <div class="ui massive image loading">
+            <img src="https://media-exp1.licdn.com/dms/image/C4E03AQGc2gGCMWlYTg/profile-displayphoto-shrink_200_200/0/1642749837275?e=1651708800&v=beta&t=k9FRUH9k3lOi2wXV6b6Fa-iwrhI8NdBV0TUIOJJWSgs">
+        </div>
         <div class="content">
             {{byId.name}}
-            <div class="sub header">Votre organisation</div>
+            <div class="sub header">{{user.organization}}</div>
         </div>
     </h2>
 </div>
+

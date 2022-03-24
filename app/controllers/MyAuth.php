@@ -30,10 +30,10 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController{
         if (URequest::isPost()) {
             $email = URequest::post($this->_getLoginInputName());
             $password = URequest::post($this->_getPasswordInputName());
-            $user = DAO::getOne(User::class, 'email= ?', false, [$email]);
+            $user = DAO::getOne(User::class, 'email= ?', ['organization'], [$email]);
             if ($user != null) {
                 if(URequest::password_verify('password', $user->getPassword())) {
-                    USession::set('idOrga', $user->getOrganization());
+                    USession::set('idOrga', $user->getOrganization()->getId());
                     return $user;
                 }
             } else {
@@ -74,7 +74,7 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController{
             $user->setFirstname(URequest::post('prenom'));
             $user->setLastname(URequest::post('nom'));
             $user->setPassword(\password_hash($password, PASSWORD_DEFAULT));
-            $user->setOrganization(DAO::getOne(Organization::class, 'id= ?', false, [1]));
+            $user->setOrganization(DAO::getOne(Organization::class, 'id= ?', false, [URequest::post('orga')]));
             DAO::insert($user);
             return true;
         } else {
